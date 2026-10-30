@@ -1,0 +1,116 @@
+\documentclass[11pt, a4paper]{article}
+\usepackage[a4paper, margin=2.5cm]{geometry}
+\usepackage{fontspec}
+\usepackage[english, spanish, bidi=basic, provide=*]{babel}
+\babelprovide[import, onchar=ids fonts]{spanish}
+\babelfont{rm}{Noto Sans}
+\usepackage{enumitem}
+\setlist[itemize]{label=-}
+\usepackage{booktabs}
+\usepackage{hyperref}
+\title{\textbf{Asistencia de la Inteligencia Artificial en la redacción de planes y proyectos}}
+\author{Francisco Allamand, Francisco Peiro, Pedro Elizalde y Matteo Pratellesi}
+\date{
+Universidad Nacional de Cuyo, Instituto de Ingeniería Industrial \
+\url{https://ingenieria.uncuyo.edu.ar/}
+}
+\begin{document}
+\maketitle
+\begin{abstract}
+\noindent La adopción de la inteligencia artificial (IA) generativa, y específicamente de los grandes modelos de lenguaje (LLM), ha transformado aceleradamente las labores de escritura profesional y técnica. Este documento examina su implementación como recurso de apoyo al momento de estructurar planes y proyectos, los cuales son pilares en el ejercicio de la Ingeniería Industrial. Explicamos la mecánica operativa de estos sistemas, delimitamos las fases de redacción en las que entregan el mayor beneficio (esquematización, bosquejos preliminares, síntesis adaptativa, corrección de tono y auditoría de coherencia), y formulamos un procedimiento de trabajo cimentado en directrices precisas y supervisión por parte del usuario. Finalmente, se abordan sus limitantes más críticas, tales como la invención de información, los sesgos algorítmicos, la protección de datos confidenciales y la responsabilidad de autoría. A modo de conclusión, destacamos que la IA representa un pilar sumamente valioso para optimizar los tiempos y perfeccionar la presentación formal, siempre y cuando la validación empírica y el raciocinio técnico sigan bajo la jurisdicción del equipo humano.
+\vspace{0.3cm}
+\noindent \textbf{Palabras clave:} UNCUYO, Gestión de proyectos, Inteligencia artificial, Redacción técnica, TyHM.
+\end{abstract}
+\section{Introducción}
+La elaboración de cálculos y la escritura de proyectos constituyen labores esenciales en el rubro de la ingeniería: desde propuestas de mejora y planes de negocio, hasta programas de mantenimiento y estudios de factibilidad, todos exigen transmitir datos técnicos de manera clara, persuasiva y sistemática. Estas actividades demandan una fracción considerable del tiempo total de un encargo, sobre todo durante la ideación del esquema, la elaboración preliminar del documento y el proceso de corrección definitiva.
+Durante los últimos años, los sistemas basados en algoritmos de aprendizaje han adquirido una habilidad sobresaliente para producir y modificar textos siguiendo instrucciones formuladas en lenguaje cotidiano. Soluciones de frontera como ChatGPT, Claude o Gemini, sumadas a los complementos integrados en editores modernos (como Overleaf o diversos procesadores de texto), posibilitan hoy en día transferir una porción de la carga de escritura a herramientas automatizadas.
+El propósito de este artículo es examinar el modo en que la IA puede colaborar en la formulación de proyectos y planes, detallando sus ventajas tangibles, los peligros asociados a su uso y las recomendaciones idóneas para emplearla de manera responsable.
+\section{Fundamentos de la IA generativa}
+Un modelo de lenguaje de gran escala (LLM) opera como un motor estadístico que ha sido entrenado con enormes volúmenes de texto para anticipar cuál es la secuencia de palabras más lógica a continuación de otra. Gracias a dicho entrenamiento, la herramienta asimila estructuras documentales, reglas gramaticales, distintos estilos de redacción y un vasto acervo de cultura general. En el instante en que el usuario le proporciona una orden específica (conocida como \textit{prompt}), el sistema formula una respuesta que mantiene coherencia con lo solicitado.
+Resulta fundamental destacar dos particularidades inherentes a esta tecnología que condicionan su aplicación en textos técnicos:
+\begin{itemize}
+\item \textbf{El sistema redacta enunciados verosímiles, pero no forzosamente verídicos:} Es capaz de inventar referencias bibliográficas, estadísticas o normativas con absoluta naturalidad y convicción, un fenómeno que en la jerga se denomina ``alucinación'' \cite{ji2023}.
+\item \textbf{El algoritmo carece de contexto específico:} Desconoce las particularidades del proyecto en curso (las restricciones de la compañía, sus presupuestos reales o la madurez de la organización) a menos que el usuario se lo detalle de manera explícita en su orden.
+\end{itemize}
+Debido a esto, la IA debe concebirse puramente como un asistente para la fluidez de la redacción, jamás como una fuente de información indiscutible ni como un sustituto del razonamiento ingenieril.
+\section{Aplicaciones en la redacción de planes y proyectos}
+Por lo general, cualquier plan respeta una arquitectura estandarizada: resumen ejecutivo, diagnóstico de la realidad actual, metas a perseguir, alcance operativo, metodología, esquema temporal (cronograma), estimación económica, análisis de vulnerabilidades y cierre. La inteligencia artificial tiene la capacidad de asistir en cada una de estas secciones aportando distintos niveles de productividad.
+\subsection{Estructuración y borradores}
+Uno de los mayores obstáculos al iniciar la documentación técnica es superar la inercia de la hoja en blanco. La IA agiliza la creación instantánea de un índice jerárquico adaptado a la naturaleza del encargo, así como la generación de un escrito preliminar que posteriormente será nutrido, validado y editado por los ingenieros. Diversas pruebas en contextos de escritura profesional evidencian una disminución notable en los tiempos de elaboración y un incremento en la calidad percibida de los entregables cuando se recurre a estos asistentes de lenguaje \cite{noy2023}.
+\subsection{Síntesis y adaptación de contenido}
+Es habitual que los proyectos apunten a distintas audiencias: mientras que la junta directiva requerirá un extracto ejecutivo muy conciso, el personal de planta precisará de la totalidad de las especificaciones operativas. La IA resulta altamente competente para resumir grandes bloques de texto, traducir, modificar el registro hacia uno más corporativo o más llano, y adecuar un mismo núcleo de información a variados soportes de lectura.
+\begin{table}[htbp]
+\centering
+\caption{Utilidad de la IA según el apartado del documento técnico.}
+\vspace{0.2cm}
+\begin{tabular}{p{3.5cm} p{7.5cm} p{3.5cm}}
+\toprule
+\textbf{Apartado del documento} & \textbf{Contribución del modelo} & \textbf{Nivel de supervisión} \
+\midrule
+Estructura general & Planteo de índice temático y secuencia lógica. & Baja \
+Resumen ejecutivo & Condensación de todo el archivo en escasos párrafos. & Media \
+Diagnóstico y Objetivos & Sistematizar conceptos, articular matrices FODA con datos del usuario. Formulación en esquema SMART. & Alta / Media \
+Cronograma, Presupuesto y Riesgos & Proponer fases y dependencias lógicas, maquetas para Gantt. Proveer formatos. Mapear amenazas comunes. & Alta / Muy alta \
+Edición final & Subsanar fallas ortográficas, ajustar el estilo, el registro y la fluidez. & Baja \
+\bottomrule
+\end{tabular}
+\end{table}
+\subsection{Revisión y control de calidad}
+Durante la etapa de cierre, el asistente virtual puede identificar incoherencias gramaticales, errores de tipeo, oraciones ambiguas o discordancias a lo largo del material (por ejemplo, discrepancias entre las fechas narradas en el texto y las asentadas en el diagrama de tiempos) garantizando que se cumpla con la estructura exigida. De igual forma, sirve de apoyo para estructurar fragmentos de código al crear tablas, formulaciones matemáticas o listas ordenadas.
+\section{Metodología de trabajo propuesta}
+El nivel de utilidad del texto generado está directamente correlacionado con la claridad y exhaustividad de la instrucción impartida. Recomendamos un flujo de trabajo estructurado en cinco pasos:
+\begin{enumerate}
+\item \textbf{Contextualizar:} Especificar el formato del entregable, el público objetivo, la meta y el estilo comunicacional deseado.
+\item \textbf{Aportar insumos propios:} Ingresar los datos verídicos del caso (tiempos reales, montos de inversión, límites técnicos), dado que la herramienta los desconoce.
+\item \textbf{Avanzar por módulos:} Demandar la asistencia sección por sección y no solicitar el documento completo de una sola vez; esto facilita enormemente el control de calidad.
+\item \textbf{Evaluación exhaustiva:} Contrastar cada métrica, operación matemática y referencia citada contra las fuentes originales fidedignas.
+\item \textbf{Retroalimentación:} Solicitar ajustes específicos de manera iterativa hasta consolidar la versión óptima.
+\end{enumerate}
+A modo ilustrativo, una instrucción (\textit{prompt}) correctamente configurada para desarrollar una sección podría plantearse así:
+\vspace{0.4cm}
+\noindent\fbox{
+\parbox{0.96\textwidth}{
+\texttt{Actúa en el rol de ingeniero industrial. Redacta el apartado de ``Objetivos'' para un plan de mejora enfocado en disminuir los tiempos de preparación (setup) de un torno dentro de una empresa metalúrgica de tamaño medio. Insumos clave: el setup actual demora 45 minutos y la meta es reducirlo a 20 minutos en un plazo máximo de 6 meses aplicando la metodología SMED. Escribe un objetivo rector y tres objetivos derivados, empleando un tono técnico y profesional.}
+}
+}
+\vspace{0.4cm}
+Este mandato establece un rol claro, la tipología del documento, el entorno, los valores numéricos concretos, el formato y la formalidad requerida, minimizando drásticamente la ambigüedad y optimizando la respuesta devuelta por el sistema.
+\section{Limitaciones y riesgos}
+La incorporación de herramientas de inteligencia artificial en la escritura de ingeniería acarrea ciertos riesgos que es imperativo administrar de manera proactiva:
+\begin{itemize}
+\item \textbf{Falsedad de la información:} El motor es propenso a inventar normativas, cifras o citas académicas para mantener la elocuencia de su texto. Ningún dato emanado de la IA debe integrarse al documento final sin una rigurosa auditoría humana.
+\item \textbf{Rendimiento inconstante:} Existen tareas donde el asistente resulta brillante y otras, de aparente idéntica complejidad, donde falla estrepitosamente. Los profesionales que delegan labores situadas por fuera de las capacidades óptimas del modelo suelen obtener resultados más deficientes que si hubieran trabajado por su cuenta \cite{dellacqua2023}.
+\item \textbf{Respuestas genéricas y sesgadas:} Las devoluciones tienden a pecar de superficiales si no se las alimenta adecuadamente, y son susceptibles de replicar prejuicios implícitos en su base de entrenamiento.
+\item \textbf{Privacidad de los datos:} Alimentar el modelo con información sensible de una organización (identidad de clientes, estructuras de costos, secretos industriales) en plataformas alojadas por terceros puede infringir normativas internas de seguridad o acuerdos previos de confidencialidad.
+\item \textbf{Integridad académica y autoría:} El grupo proyectista mantiene siempre la responsabilidad absoluta e indelegable sobre el contenido. En entornos educativos, el empleo de estas tecnologías debe transparentarse y bajo ningún concepto debe suplantar el genuino proceso de adquisición de competencias \cite{kasneci2023}.
+\end{itemize}
+\section{Buenas prácticas}
+Tomando como base las consideraciones previas, aconsejamos adherirse a los siguientes lineamientos:
+\begin{itemize}
+\item Aprovechar el potencial de la IA exclusivamente para maquetar, crear borradores y pulir la redacción, descartándola rotundamente como repositorio de verdades técnicas.
+\item Auditar minuciosamente cada estándar, cálculo matemático o referencia bibliográfica sugerida por la plataforma.
+\item Ofuscar o anonimizar por completo cualquier dato estratégico o confidencial antes de incorporarlo al campo de texto de la herramienta.
+\item Preservar el juicio profesional y el análisis empírico humano como el núcleo de todas las decisiones vinculadas al proyecto.
+\item Transparentar la utilización de estos modelos de lenguaje explícitamente en el apartado metodológico de la versión definitiva.
+\end{itemize}
+\section{Conclusiones}
+Los modelos de lenguaje de gran escala se han consolidado como un instrumento excepcionalmente funcional para agilizar los flujos de redacción: aceleran la producción de textos iniciales, facilitan la asimilación y transformación de contenidos complejos, e incrementan notoriamente la prolijidad visual y gramatical de los reportes técnicos.
+No obstante, su verdadero poder reside en el embellecimiento de la forma y no en la construcción del fondo. La evaluación fáctica de la situación, el abordaje de las problemáticas técnicas, la precisión numérica y la comprobación de la verdad continúan bajo la entera y estricta jurisdicción de los ingenieros involucrados.
+Cuando se emplea a través de directrices minuciosas, nutriéndola con información genuina y aplicando un filtro rigurosamente crítico, la IA faculta a los profesionales para invertir mayor energía cognitiva en la toma de decisiones y un menor tiempo en el tecleo sistemático, lo que la posiciona como una destreza de alto valor para el desarrollo y formación en la Ingeniería Industrial.
+\begin{thebibliography}{7}
+\bibitem{brown2020}
+Brown, T., et al.: Language models are few-shot learners. In: Advances in Neural Information Processing Systems, vol. 33, pp. 1877-1901 (2020)
+\bibitem{dellacqua2023}
+Dell'Acqua, F., et al.: Navigating the jagged technological frontier: Field experimental evidence of the effects of AI on knowledge worker productivity and quality. Harvard Business School Working Paper No. 24-013 (2023)
+\bibitem{ji2023}
+Ji, Z., et al.: Survey of hallucination in natural language generation. ACM Computing Surveys 55(12), 1-38 (2023)
+\bibitem{kasneci2023}
+Kasneci, E., et al.: ChatGPT for good? On opportunities and challenges of large language models for education. Learning and Individual Differences 103, 102274 (2023)
+\bibitem{noy2023}
+Noy, S., Zhang, W.: Experimental evidence on the productivity effects of generative artificial intelligence. Science 381(6654), 187-192 (2023)
+\bibitem{pmi2021}
+Project Management Institute: A Guide to the Project Management Body of Knowledge (PMBOK Guide), 7th edn. PMI, Newtown Square (2021)
+\bibitem{vaswani2017}
+Vaswani, A., et al.: Attention is all you need. In: Advances in Neural Information Processing Systems, vol. 30 (2017)
+\end{thebibliography}
+\end{document}
